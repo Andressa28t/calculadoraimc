@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC</title>
+</head>
+
+<body id="body">
+    <header>
+        <h1>Índice de Massa Corporal</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#calc">Calculadora</a></li>
+                <li><a href="#tabela">Tabela</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <p class="intro">Descubra seu IMC calculando somente com seu peso e sua altura, descubra se você está entre
+                os valores da tabela.</p>
+        </section>
+        <section id="calc">
+            <h2>Venha Descobrir seu IMC</h2>
+            <div class="container">
+                <div class="altura">
+                    <label for="altura">Altura:</label>
+                    <input type="number" name="altura" id="altura">
+                </div>
+                <div class="peso">
+                    <label for="peso"> Peso (kg):</label>
+                    <input type="number" name="peso" id="peso">
+                </div>
+                <div class="resultado">
+                    <button onclick="calcImc()">Calcular IMC</button>
+
+                    <p>Seu índice de massa corporal é:<span id="resultado"></span></p>
+                </div>
+            </div>
+        </section>
+        <section id="tabela">
+            <h2>Tabela informativa dos valores do IMC(Índice de massa corporal).</h2>
+
+        </section>
+        <!-- <button onclick="mudarTema">Mudar Tema da Página</button> -->
+    </main>
+    <script>
+        function calcImc() {
+            const altura = document.getElementById("altura").value;
+            const peso = document.getElementById("peso").value;
+            const resultado = peso / (altura ** 2);
+
+            document.getElementById("resultado").textContent = resultado.toFixed(2);
+
+        }
+        function mudarTema() {
+            const body = document.getElementById("body");
+            body.style.backgroundColor = body.style.backgroundColor === "cyan" ? "grey" : "cyan";
+        }
+    </script>
+
+    <footer>
+        <p class="footer"> &copy;2024 | Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>
